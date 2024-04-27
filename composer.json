@@ -1,0 +1,30 @@
+{
+    "name": "zeroc0de/routim",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Routim\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "zeroc0de2022",
+            "email": "98693638+zeroc0de2022@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php-di/php-di": "^7.0",
+        "devcoder-xyz/php-dotenv": "^2.1",
+        "slim/slim": "*",
+        "slim/psr7": "*",
+        "twig/twig": "*",
+        "ext-curl": "*",
+        "ext-iconv": "*",
+        "ext-pdo": "*",
+        "robmorgan/phinx": "^0.16.0"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^6.4"
+    }
+}

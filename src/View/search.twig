@@ -1,0 +1,18 @@
+{% extends  'main.twig' %}
+
+{% block body %}
+    <div class="container mt-3">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8">
+                <div class="search">
+                    <i class="fa fa-search"></i>
+                    <input type="text" id="searchKey" class="form-control" placeholder="Keyword" value="{{ key }}">
+                    <button class="btn btn-primary" id="search_button">Search</button>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="result"></div>
+        <div class="row" id="moreResult"></div>
+    </div>
+
+{% endblock %}
