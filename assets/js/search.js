@@ -130,7 +130,7 @@ let formatNumber = (number) => number.toString().replace(/\B(?=(\d{3})+(?!\d))/g
 // Add in body
 function addInBody(container_id, idNames) {
     for (let idName of idNames) {
-        appendToContainer(containerID, newDiv(idName, 'row'));
+        appendToContainer(container_id, newDiv(idName, 'row'));
     }
 }
 
