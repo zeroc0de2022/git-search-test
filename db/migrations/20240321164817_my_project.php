@@ -6,26 +6,16 @@ use Phinx\Migration\AbstractMigration;
 
 final class MyProject extends AbstractMigration
 {
-    /**
-     * Change Method.
-     *
-     * Write your reversible migrations using this method.
-     *
-     * More information on writing migrations is available here:
-     * https://book.cakephp.org/phinx/0/en/migrations.html#the-change-method
-     *
-     * Remember to call "create()" or "update()" and NOT "save()" when working
-     * with the Table class.
-     */
-    public function change():void
+
+    public function change(): void
     {
-        // Создание таблицы projects
-        $table = $this->table('projects', ['id' => false, 'primary_key' => 'id', 'engine' => 'InnoDB', 'encoding' => 'utf8mb4', 'collation' => 'utf8mb4_unicode_ci']);
-        $table->addColumn('id', 'integer', ['identity' => true])
-              ->addColumn('keyword', 'string', ['limit' => 255, 'collation' => 'utf8mb4_unicode_ci'])
-              ->addColumn('json', 'json')
-              ->addColumn('hash', 'char', ['limit' => 32, 'collation' => 'utf8mb4_unicode_ci'])
-              ->addIndex(['hash'], ['unique' => true, 'name' => 'idx_unique_json_hash'])
-              ->create();
+        // Create table without hash column
+        $table = $this->table('routim_project', ['engine' => 'InnoDB', 'collation' => 'utf8mb4_unicode_ci']);
+        $table->addColumn('keyword', 'string', ['limit' => 255, 'collation' => 'utf8mb4_unicode_ci', 'null' => true])
+            ->addColumn('json', 'json', ['null' => true])
+            ->create();
+        // Create hash column and unique index
+        $this->execute('ALTER TABLE `routim_project` ADD `hash` CHAR(32) COLLATE utf8mb4_unicode_ci GENERATED ALWAYS AS (md5(`json`)) VIRTUAL');
+        $this->execute('ALTER TABLE `routim_project` ADD UNIQUE INDEX `idx_unique_json_hash` (`hash`)');
     }
 }
