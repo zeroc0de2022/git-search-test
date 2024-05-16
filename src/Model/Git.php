@@ -55,7 +55,7 @@ class Git
                     $content['items'][$num]['stargazers'] = $val['stargazers_count'];
                     $content['items'][$num]['watchers']   = $val['watchers_count'];
                     $content['items'][$num]['descr']      = !empty($val['description'])
-                        ? $val['description']
+                        ? htmlspecialchars($val['description'])
                         : 'No description';
                 });
             }
