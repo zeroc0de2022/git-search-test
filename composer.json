@@ -15,7 +15,7 @@
     "minimum-stability": "stable",
     "require": {
         "php-di/php-di": "^7.0",
-        "devcoder-xyz/php-dotenv": "^2.1",
+        "phpdevcommunity/php-dotenv": "^3.0",
         "slim/slim": "*",
         "slim/psr7": "*",
         "twig/twig": "*",

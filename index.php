@@ -11,7 +11,7 @@ use DI\ContainerBuilder;
 use DI\NotFoundException;
 use Routim\Session;
 use Slim\Factory\AppFactory;
-use DevCoder\DotEnv;
+use PhpDevCommunity\DotEnv;
 
 
 require __DIR__ . '/vendor/autoload.php';
